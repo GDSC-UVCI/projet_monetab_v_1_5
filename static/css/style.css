@@ -1,0 +1,345 @@
+body {
+    font-family: "Segoe UI", system-ui, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.dashboard {
+    display: flex;
+}
+
+aside {
+    width: 200px;
+    background-color: #f2f2f2;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    box-sizing: border-box;
+}
+aside a {
+
+    text-decoration: none;
+    color: #333;
+    border: none;
+    cursor: pointer;
+}
+nav{
+    flex: 1;
+}
+nav ul {
+    list-style: none;
+    padding: 2px;
+    margin: 10px;
+}
+
+nav ul li {
+    margin: 1rem 0 2rem 0;
+}
+
+main {
+    flex: 1;
+    padding: 2rem;
+    background-color: #f9f9f9;
+
+
+}
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+main h2{
+    text-align: start;
+}
+
+.card {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 1rem;
+
+    border-radius: 10px;
+}
+
+.card h3 {
+    margin-bottom: 0.5rem;
+}
+.card p{
+    text-align: center;
+}
+
+.chart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+svg {
+    width: 100px;
+    height: 100px;
+}
+
+circle {
+    fill: none;
+    stroke-width: 32;
+    stroke: #ccc;
+}
+
+.legend {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.legend p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.male {
+    width: 10px;
+    height: 10px;
+    background-color: black;
+    display: inline-block;
+}
+
+.female {
+    width: 10px;
+    height: 10px;
+    background-color: gray;
+    display: inline-block;
+}
+
+form {
+    max-width: 400px;
+    margin: auto;
+
+
+}
+.form-control {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin: 0.5rem;
+}
+input, select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin: 0.5rem;
+}
+
+
+form {
+    max-width: 800px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+form > div {
+    grid-column: span 2;
+}
+
+form input, form select {
+    width: 80%;
+}
+
+form div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+form button {
+    grid-column: span 1;
+    width: 100%;
+    padding: 0.5rem;
+}
+.return {
+    position: absolute;
+    top: 1rem;
+    right: 3rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: black;
+
+}
+
+input, select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin: 0.5rem 0;
+}
+
+input[type="text"], input[type="number"], select {
+    grid-column: span 1;
+}
+
+input[type="radio"] {
+    width: auto;
+    margin-right: 0.5rem;
+}
+
+button {
+    grid-column: span 2;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button[type="button"] {
+    background-color: red;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+h2 {
+    grid-column: span 2;
+    text-align: center;
+}
+
+button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button[type="button"] {
+    background-color: red;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 0.5rem;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+.name{
+    color: #4CAF50;
+}
+.alert {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    width: 300px;
+    text-align: center;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.alert p {
+    margin: 15px 0;
+    font-size: 1rem;
+    color: #333;
+}
+
+.alert button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.alert button#confirmDelete {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.alert button#confirmDelete:hover {
+    background-color: #c0392b;
+}
+
+.alert button#cancelDelete {
+    background-color: #bdc3c7;
+    color: white;
+}
+
+.alert button#cancelDelete:hover {
+    background-color: #95a5a6;
+}
+
+.grayscale {
+    filter: grayscale(100%);
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    background-color: #333;
+}
+
+.login-box {
+    background-color: white;
+    border-radius: 8px;
+    text-align: center;
+    align-items: center;
+    height: 30vh;
+    width: 40vh;
+    padding: 2rem 2rem 10vh;
+}
+.active a{
+    color: blue;
+}
+.text-active a {
+    color: blue;
+    font-weight: bold;
+}
+
+

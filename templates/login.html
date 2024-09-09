@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Etab - Connexion</title>
+    <link rel="stylesheet" href={% static 'css/style.css' %}>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+<body>
+<div class="login-container">
+    <div class="login-box">
+        <img src="{% static 'images/logo.png' %}">
+    <form method="post">
+            {% csrf_token %}
+        <div>{{  form.username }}</div>
+        <div> {{  form.password }}</div>
+        {% if messages %}
+        <div>
+            {% for m in messages %}
+                <p style="color: red;">{{m}}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+        
+
+        
+       <div><button type="submit" href="window.location.href='{% url 'dashboard:index'%}">Connexion</button></div> 
+        </form>
+    </div>
+</div>
+</body>
+</html>

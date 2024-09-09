@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    <title>Mon Etab - School</title>
+{% endblock %}
+
+{% block content %}
+
+
+    <main class="machin">
+        <h2>Ecole ({{ total_school}})</h2>
+        <a href="{% url 'school:add' %}" style=" text-decoration: none; color: black;position: absolute; top: 2rem; right: 3rem;">
+            <i class="fa-solid fa-circle-plus"></i>New school
+        </a>
+        {% if schools %}
+            <table id="table">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Creation Date</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for s in schools %}
+                    <tr>
+                        <td>{{ s.name }}</td>
+                        <td>{{ s.created_at | date:"d/m/Y" }}</td>
+                        <td><a href="{% url 'school:edit' pk=s.id %}"><button type="button" style="background-color: orangered; color: black;">Modifier</button></a> <button class="deleteButton" data-url="{% url 'school:delete' pk=s.id %}" style="background-color: red; color: black;">Supprimer</button></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            0 écoles enregistrées
+        {% endif %}
+    </main>
+    <div class="alert">
+        <p>ATTENTION !!</p>
+        <p>Voulez-vous vraiment supprimer cet école?</p>
+        <button id="confirmDelete" >Oui</button>
+        <button id="cancelDelete">Non</button>
+    </div>
+{% endblock %}

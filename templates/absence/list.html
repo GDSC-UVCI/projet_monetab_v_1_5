@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load mathfilters %}
+
+
+{% block title %}    <title>Mon Etab - Absence</title> {% endblock %}
+
+{% block content %}
+
+    <main class="machin">
+        <h2>Absence ({{total}})</h2>
+        <a href="{% url 'absence:add' %}" style=" text-decoration: none; color: black;position: absolute; top: 1rem; right: 3rem;">
+            <i class="fa-solid fa-circle-plus"></i>Nouvelle absence
+        </a>
+        {% if absences %}
+            <table id="table">
+                <thead>
+                <tr>
+                    <th>Absence date </th>
+                    <th>Elève</th>
+                    <th>Nombre d'absence</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for absence in absences %}
+                <tr>
+
+                        <td>{{absence.absence_date|date:"d/m/Y"}}</td>
+                        <td>{{absence.student}}</td>
+                        <td>{{absence.absence_number}}</td>
+                        <td><a href="{% url 'absence:edit' pk=absence.id %}"><button type="button" style="background-color: orangered; color: black;">Modifier</button></a> <button class="deleteButton" data-url="{% url 'absence:delete' pk=absence.id %}" style="background-color: red; color: black;">Supprimer</button></td>
+                </tr>
+
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            0 absence enregistré
+        {% endif %}
+
+    </main>
+
+
+    <div class="alert">
+        <p>ATTENTION !!</p>
+        <p>Voulez-vous vraiment supprimer cette carte?</p>
+        <button id="confirmDelete" >Oui</button>
+        <button id="cancelDelete">Non</button>
+    </div>
+{% endblock %}

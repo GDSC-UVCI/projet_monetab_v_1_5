@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load mathfilters %}
+
+
+{% block title %}    <title>Mon Etab - Élèves</title> {% endblock %}
+
+{% block content %}
+
+    <main class="machin">
+        <h2>Élèves ({{total_students}})</h2>
+        <a href="{% url 'student:add' %}" style=" text-decoration: none; color: black;position: absolute; top: 1rem; right: 3rem;">
+            <i class="fa-solid fa-circle-plus"></i>Nouveau élève
+        </a>
+        {% if students %}
+            <table id="table">
+                <thead>
+                <tr>
+                    <th>Nom </th>
+                    <th>Prénom</th>
+                    <th>Matricule</th>
+                    <th>Âge</th>
+                    <th>Téléphone</th>
+                    <th>Ville</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    {% for student in students %}
+                        <td>{{student.first_name}}</td>
+                        <td>{{student.last_name}}</td>
+                        <td>{{student.register}}</td>
+                        <td>{{today|sub:student.birthday.year}}</td>
+                        <td>{{student.phone_number}}</td>
+                        <td>{{student.adress.city}}</td>
+                        <td><a href="{% url 'student:edit' pk=student.id %}"><button type="button" style="background-color: orangered; color: black;">Modifier</button></a> <button class="deleteButton" data-url="{% url 'student:delete' pk=student.id %}" style="background-color: red; color: black;">Supprimer</button></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            0 élève enregistré
+        {% endif %}
+
+    </main>
+
+
+    <div class="alert">
+        <p>ATTENTION !!</p>
+        <p>Voulez-vous vraiment supprimer cet éleve?</p>
+        <button id="confirmDelete" >Oui</button>
+        <button id="cancelDelete">Non</button>
+    </div>
+{% endblock %}

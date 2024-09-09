@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}<title>Mon Etab - {% if form.instance.pk is  None %}Ajouter{% else %}Modifier{% endif %} un Élève</title> {% endblock %}
+{% block content %}
+
+    <main>
+        <a href="{% url 'student:index' %}" class="return"><i class="fas fa-arrow-left"></i>Retour</a>
+
+        <form method="post">
+            {% csrf_token %}
+            <h2>{% if form.instance.pk is not None %}Modifier un élève{% else %}Ajouter un élève{% endif %}</h2>
+
+            <h3 >Elève</h3>
+            <div>
+                {{ form.last_name }}
+                {{ form.register }}
+            </div>
+            <div>
+                {{ form.first_name }}
+                {{ form.phone_number }}
+            </div>
+            <div>
+                {{ form.gender }}
+                {{ form.url_picture }}
+            </div>
+            <div>
+                {{ form.birthday }}
+                {{ form.phone_number_father }}
+            </div>
+            <div>
+                <!-- {{ form.user }} -->
+            </div>
+
+            <h3 >Adresse</h3>
+            <div>
+                {{adress_form | crispy }}
+            </div>
+
+            <h3 >Compte</h3>
+                  
+                {{ user_form | crispy }}
+
+            <div>
+                {% if form.instance.pk is  None %}<button type="reset" style="background-color: red;" >Annuler</button>{% endif %}
+                <button type="submit">{% if form.instance.pk is  None %} Enregistrer{% else %} Enregistrer modification {% endif %}</button>
+            </div>
+
+        </form>
+    </main>
+{% endblock %}

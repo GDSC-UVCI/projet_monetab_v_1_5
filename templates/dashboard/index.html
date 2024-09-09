@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}<title>Mon Etab - Tableau de Bord</title> {% endblock %}
+{% block content %}
+
+    <main>
+        <h2>Tableau de bord</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>Nombre d'élève</h3>
+                <p style="font-size: 50px;">{{total_students}}</p>
+            </div>
+            <div class="card">
+                <h3>Nombre de professeur</h3>
+                <p style="font-size: 50px;">{{total_teachers}}</p>
+            </div>
+            <div class="card">
+                <h3>Nombre d'utilisateur</h3>
+                <p style="font-size: 50px;">{{total_users}}</p>
+            </div>
+            <div class="card">
+                <h3>Élève par genre</h3>
+                {% if total_students != 0 %}
+                <div class="chart">
+                    <div style="height: 200px;">
+                        <canvas id="genderChart"></canvas>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </main>
+
+    <script>
+        window.totalStudentsMale = {{ total_students_male }};
+        window.totalStudentsFemale = {{ total_students_female  }};
+    </script>
+    
+    
+{% endblock %}

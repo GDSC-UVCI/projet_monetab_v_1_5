@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    <title>Mon Etab - {% if form.instance.pk is  None %}Add{% else %}Update{% endif %} School</title>
+{% endblock %}
+
+{% block content %}
+
+    <main >
+        <a href="{% url 'school:list' %}" class="return"><i class="fas fa-arrow-left"></i>Retour</a>
+
+        <h2 style="text-align: center;">{% if form.instance.pk is  None %}Add{% else %}Update{% endif %} school</h2>
+
+        <form method="post">
+            {% csrf_token %}
+            <h4>School's Informations</h4>
+            {{ form | crispy }}
+            <h4>App's Informations</h4>
+            {{ app_form | crispy }}
+
+            <div>
+                {% if form.instance.pk is  None %}<button type="reset" style="background-color: red;" >Annuler</button>{% endif %}
+                <button type="submit">{% if form.instance.pk is  None %} Save {% else %} Save Changes {% endif %}</button>
+            </div>
+        </form>
+    </main>
+{% endblock %}

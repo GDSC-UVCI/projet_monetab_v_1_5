@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load mathfilters %}
+
+
+{% block title %}    <title>Mon Etab - Carte Eleve</title> {% endblock %}
+
+{% block content %}
+
+    <main class="machin">
+        <h2>Carte etudiant ({{total}})</h2>
+        <a href="{% url 'studentcards:add' %}" style=" text-decoration: none; color: black;position: absolute; top: 1rem; right: 3rem;">
+            <i class="fa-solid fa-circle-plus"></i>Nouvelle carte d'éleve
+        </a>
+        {% if students_cards %}
+            <table id="table">
+                <thead>
+                <tr>
+                    <th>Référence </th>
+                    <th>Elève</th>
+                    <th>Date d'émission</th>
+                    <th>Date d'expiration</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for student_card in students_cards %}
+                <tr>
+
+                        <td>{{student_card.reference}}</td>
+                        <td>{{student_card.student}}</td>
+                        <td>{{student_card.issue_date}}</td>
+                        <td>{{student_card.expiration_date}}</td>
+                        <td><a href="{% url 'studentcards:edit' pk=student_card.id %}"><button type="button" style="background-color: orangered; color: black;">Modifier</button></a> <button class="deleteButton" data-url="{% url 'studentcards:delete' pk=student_card.id %}" style="background-color: red; color: black;">Supprimer</button></td>
+                </tr>
+
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            0 carte enregistré
+        {% endif %}
+
+    </main>
+
+
+    <div class="alert">
+        <p>ATTENTION !!</p>
+        <p>Voulez-vous vraiment supprimer cette carte?</p>
+        <button id="confirmDelete" >Oui</button>
+        <button id="cancelDelete">Non</button>
+    </div>
+{% endblock %}

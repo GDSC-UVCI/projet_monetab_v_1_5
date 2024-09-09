@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+{% endblock %}
+    <title>Mon Etab - Utilisateurs</title>
+
+{% block content %}
+<main>
+    <h2>Utilisateurs ({{ total_users }})</h2>
+    <a href="{% url 'user:add' %}" style="text-decoration: none; color: black; position: absolute; top: 2rem; right: 3rem;">
+        <i class="fa-solid fa-circle-plus"></i>Nouveau utilisateur
+    </a>
+    <form method="GET" action="{% url 'user:search' %}" style="margin-bottom: 1rem;">
+        <input type="text" name="q" placeholder="Rechercher..." value="{{ query|default:'' }}">
+        <button type="submit">Rechercher</button>
+    </form>
+    {% if users %}
+    {% else %}
+    {% endif %}
+        0 utilisateur enregistré
+        <table id="table">
+            <thead>
+                <tr>
+                    <th>Pseudo</th>
+                    <th>Date de création</th>
+                    <th>Statut</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td>{{ user.pseudo }}</td>
+                        <td>{{ user.created_at | date:"d/m/Y" }}</td>
+                        <td>{% if user.is_active %}Actif{% else %}Inactif{% endif %}</td>
+                        <td>
+                            <a href="{% url 'user:edit' pk=user.id %}">
+                                <button type="button" style="background-color: orangered; color: black;">Modifier</button>
+                            </a>
+                            <a href="{% url 'user:change_status' pk=user.id action=user.is_active|yesno:'deactivate,activate' %}" onclick="return confirm('Are you sure you want to {% if user.is_active %}deactivate{% else %}activate{% endif %} this user?');">
+                                <button type="button" style="background-color: orangered; color: black;">{% if user.is_active %}Bloquer{% else %}Débloquer{% endif %}</button>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+</main>
+{% endblock %}

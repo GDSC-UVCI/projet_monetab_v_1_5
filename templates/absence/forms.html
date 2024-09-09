@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}<title>Mon Etab - {% if form.instance.pk is  None %}Ajouter{% else %}Modifier{% endif %} un Élève</title> {% endblock %}
+{% block content %}
+
+    <main>
+        <a href="{% url 'absence:index' %}" class="return"><i class="fas fa-arrow-left"></i>Retour</a>
+
+        <form method="post">
+            {% csrf_token %}
+            <h2>{% if form.instance.pk is not None %}Modifier une carte d'éleve{% else %}Ajouter une carte d'éleve{% endif %}</h2>
+
+            <div>
+                {{form.absence_date|as_crispy_field}}
+            </div>
+            <div>
+                {{form.absence_number|as_crispy_field}}
+            </div>
+            <div>
+                {{form.student|as_crispy_field}}
+            </div>
+            
+            <div>
+                {% if form.instance.pk is  None %}<button type="reset" style="background-color: red;" >Annuler</button>{% endif %}
+                <button type="submit">{% if form.instance.pk is  None %} Enregistrer{% else %} Enregistrer modification {% endif %}</button>
+            </div>
+
+        </form>
+    </main>
+{% endblock %}

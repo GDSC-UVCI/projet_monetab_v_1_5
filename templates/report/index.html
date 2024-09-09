@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}<title>Mon Etab - Rapport</title> {% endblock %}
+
+{% block content %}
+
+
+    <main>
+        <h2 style="text-align: start">Rapport</h2>
+
+        <select name="type" id="select" style="width: 250px; margin-right: 5%;" >
+            <option>Sélectionnez une option</option>
+            <option>Élèves Excel</option>
+            <option>Professeurs Excel</option>
+            <option>Utilisateurs Excel</option>
+        </select>
+        <button type="button" style="margin-right: 5%;">Générer format PDF</button>
+        <button type="submit">Générer format Excel</button>
+    </main>
+{% endblock %}

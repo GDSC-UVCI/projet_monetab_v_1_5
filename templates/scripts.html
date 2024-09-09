@@ -1,0 +1,17 @@
+{% load static %}
+
+<script src= {% static "js/graph.js" %}></script>
+<script src= {% static "js/dataTable.js" %}></script>
+<script src= {% static "js/modal.js" %}></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var firstInput = document.getElementById('id_gender_0');
+        if (firstInput) {
+            firstInput.closest('div').style.display = 'none'; 
+        }
+    });
+    document.addEventListener("DOMContentLoaded", function(){
+        var error = document.getElementsByClassName('invalid-feedback')
+        Array.from(error).forEach(element => element.closest('p').style.display = 'none')
+    })
+</script>

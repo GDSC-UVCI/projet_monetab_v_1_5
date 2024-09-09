@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    <title>Mon Etab - Utilisateurs</title>
+{% endblock %}
+
+{% block content %}
+
+
+    <main class="machin">
+        <h2>Role ({{ total}})</h2>
+        <a href="{% url 'role:add' %}" style=" text-decoration: none; color: black;position: absolute; top: 2rem; right: 3rem;">
+            <i class="fa-solid fa-circle-plus"></i>Nouveau role
+        </a>
+        {% if roles %}
+            <table id="table">
+                <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Date de création</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for role in roles %}
+                    <tr>
+                        <td>{{ role.role }}</td>
+                        <td>{{ role.created_at | date:"d/m/Y" }}</td>
+                        <td><a href="{% url 'role:edit' pk=role.id %}"><button type="button" style="background-color: orangered; color: black;">Modifier</button></a>
+                            <button class="deleteButton" data-url="{% url 'role:delete' pk=role.id %}" style="background-color: red; color: black;">Supprimer</button>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            0 role enregistré
+        {% endif %}
+    </main>
+    <div class="alert">
+        <p>ATTENTION !!</p>
+        <p>Voulez-vous vraiment supprimer ce role?</p>
+        <button id="confirmDelete">Oui</button>
+        <button id="cancelDelete">Non</button>
+    </div>
+{% endblock %}

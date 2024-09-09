@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    <title>Mon Etab - {% if form.instance.pk is  None %}Ajouter{% else %}Modifier{% endif %} Utilisateur</title>
+{% endblock %}
+
+{% block content %}
+
+    <main >
+        <a href="{% url 'user:index' %}" class="return"><i class="fas fa-arrow-left"></i>Retour</a>
+
+        <h2 style="text-align: center;">{% if form.instance.pk is  None %}Ajouter{% else %}Modifier{% endif %} utilisateur</h2>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form | crispy }}
+            <div>
+                {% if form.instance.pk is  None %}<button type="reset" style="background-color: red;" >Annuler</button>{% endif %}
+                <button type="submit">{% if form.instance.pk is  None %} Enregistrer{% else %} Enregistrer modification {% endif %}</button>
+            </div>
+        </form>
+    </main>
+{% endblock %}
