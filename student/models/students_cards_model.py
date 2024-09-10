@@ -13,7 +13,7 @@ class StudentsCardsModel(DateTimeModel):
     issue_date = models.DateField()
 
     def __str__(self):
-        return f"{self.absence_number} - {self.absence_date}"
+        return f"{self.student.first_name} - {self.reference}"
 
     class Meta:
         verbose_name = "Student Card"

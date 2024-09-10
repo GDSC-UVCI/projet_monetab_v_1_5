@@ -2,6 +2,7 @@ from django.db import models
 
 from base.helpers.date_time_model import DateTimeModel
 
+# TODO: role and user are not related with many to many relationship
 
 # Create your models here.
 class RoleUserModel(DateTimeModel):
