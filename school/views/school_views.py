@@ -1,8 +1,9 @@
-from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth.decorators import login_required
-from school.models.school_model import SchoolModel
+from django.shortcuts import render, redirect, get_object_or_404
+
 from school.forms.school_form import SchoolForms
-from school.forms.app_settings_form import AppSettingsForms
+from school.models.school_model import SchoolModel
+
 
 @login_required
 def list(request):
