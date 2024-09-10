@@ -96,7 +96,7 @@ WSGI_APPLICATION = 'website.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'etab_bd1',
+        'NAME': 'etab_bd2',
         'USER': 'admin',
         'PASSWORD': '1234',
         'HOST': 'localhost',
@@ -127,8 +127,12 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',  # Django's default backend
+    'user.backends.CustomUserModelBackend',       # my custom backend
+]
 
-AUTH_USER_MODEL = 'user.UserModel'
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/

@@ -26,7 +26,7 @@ def generate_pdf(request, report_type):
 
     y = 700
     for user in users:
-        p.drawString(100, y, f"{user.pseudo} - {user.email}")
+        p.drawString(100, y, f"{user.pseudo} - {user.username}")
         y -= 20
 
     p.showPage()
@@ -43,7 +43,7 @@ def generate_excel(request, report_type):
     else:
         users = User.objects.all()
 
-    data = [{'Pseudo': user.pseudo, 'Email': user.email} for user in users]
+    data = [{'Pseudo': user.pseudo, 'Email': user.username} for user in users]
     df = pd.DataFrame(data)
     buffer = io.BytesIO()
     with pd.ExcelWriter(buffer, engine='openpyxl') as writer:

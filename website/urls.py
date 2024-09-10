@@ -20,15 +20,18 @@ from dashboard.views import log_in, log_out
 from api.api_views.student_api_views import student_list
 from rest_framework import routers
 
+from school.views.app_settings_views import appsetting_add
+
 router = routers.DefaultRouter()
 #router.register(r'students', student_list, basename='student')
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', student_list, name='student_list'),
-    path('', log_in, name=''),
+    path('api/students/', student_list, name='student_list'),
+    path('login/', log_in, name='login'),
+    path('appsetting/', appsetting_add, name='appsetting_add'),
     path('logout/', log_out, name='logout'),
     path('student/', include('student.urls')),
-    path('dashboard/', include('dashboard.urls')),
+    path('', include('dashboard.urls')),
     path('teacher/', include('teacher.urls')),
     path('user/', include('user.urls')),
     path("report/", include("report.urls")),

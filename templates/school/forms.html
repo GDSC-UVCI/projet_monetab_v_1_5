@@ -8,7 +8,7 @@
 {% block content %}
 
     <main >
-        <a href="{% url 'school:list' %}" class="return"><i class="fas fa-arrow-left"></i>Retour</a>
+{#        <a href="{% url 'school:list' %}" class="return"><i class="fas fa-arrow-left"></i>Retour</a>#}
 
         <h2 style="text-align: center;">{% if form.instance.pk is  None %}Add{% else %}Update{% endif %} school</h2>
 
@@ -16,8 +16,7 @@
             {% csrf_token %}
             <h4>School's Informations</h4>
             {{ form | crispy }}
-            <h4>App's Informations</h4>
-            {{ app_form | crispy }}
+            
 
             <div>
                 {% if form.instance.pk is  None %}<button type="reset" style="background-color: red;" >Annuler</button>{% endif %}

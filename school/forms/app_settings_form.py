@@ -8,3 +8,4 @@ class AppSettingsForms(forms.ModelForm):
     class Meta:
         model = AppSettingModel
         exclude = ['status']
+        #create widgets to beatify the form

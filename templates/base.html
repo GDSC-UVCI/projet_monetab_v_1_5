@@ -19,7 +19,9 @@
 </head>
 <body>
 <div class="dashboard">
+    {% if user.is_authenticated %}
     {% include 'menu.html' %}
+    {% endif %}
 
     {% block content %}
 

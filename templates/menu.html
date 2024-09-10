@@ -41,7 +41,7 @@
             <li {% if request.path == professeur_url or request.path == professeur_add_url or request.path == professeur_edit_url %} class="active text-active" {% endif %}><i class="fas fa-chalkboard-teacher"></i><a href={% url 'teacher:index' %}> Professeurs</a></li>
             <li {% if request.path == utilisateur_url or request.path == utilisateur_add_url %} class="active text-active" {% endif %}><i class="fa-regular fa-user"></i> <a href={% url 'user:index' %}> Utilisateurs</a></li>
             <li {% if request.path == role_url or request.path == role_add_url %} class="active text-active" {% endif %}><i class="fa-regular fa-user"></i> <a href={% url 'role:list' %}> Roles</a></li>
-            <li {% if request.path == school_url or request.path == school_add_url or request.path == school_edit_url %} class="active text-active" {% endif %}><i class="fa-regular fa-user"></i> <a href={% url 'school:list' %}> Écoles</a></li>
+{#            <li {% if request.path == school_url or request.path == school_add_url or request.path == school_edit_url %} class="active text-active" {% endif %}><i class="fa-regular fa-user"></i> <a href={% url 'school:list' %}> Écoles</a></li>#}
             <li {% if request.path == rapport_url %} class="active text-active" {% endif %}><i class="fas fa-file-alt"></i><a href={% url 'report:index' %}> Rapport</a></li>
 
         </ul>

@@ -1,8 +1,7 @@
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, Group, Permission
 from django.db import models
 
 from base.helpers.date_time_model import DateTimeModel
-
 
 class UserModel(AbstractUser, DateTimeModel):
     role = models.ForeignKey('user.RoleUserModel', on_delete=models.SET_NULL, null=True)
@@ -10,6 +9,21 @@ class UserModel(AbstractUser, DateTimeModel):
     pseudo = models.CharField(max_length=255)
     password = models.CharField(max_length=255)
     is_active = models.BooleanField(default=True)
+
+    groups = models.ManyToManyField(
+        Group,
+        related_name='custom_user_groups',
+        blank=True,
+        help_text='The groups this user belongs to.',
+        verbose_name='groups',
+    )
+    user_permissions = models.ManyToManyField(
+        Permission,
+        related_name='custom_user_permissions',  # Add this line
+        blank=True,
+        help_text='Specific permissions for this user.',
+        verbose_name='user permissions',
+    )
 
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['role', 'school', 'pseudo']
