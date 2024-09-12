@@ -1,0 +1,96 @@
+# fixtures/teacher.yaml
+- model: teacher.teachermodel
+  pk: 1
+  fields:
+    user: 1
+
+    birthday: 1980-01-01
+    last_name: Doe
+    first_name: John
+    phone_number: 1234567890
+    url_picture: null
+    gender: M
+    available: true
+    speciality: Mathematics
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z
+
+- model: teacher.teachermodel
+  pk: 2
+  fields:
+    user: 2
+
+    birthday: 1985-05-15
+    last_name: Smith
+    first_name: Jane
+    phone_number: 0987654321
+    url_picture: null
+    gender: F
+    available: false
+    speciality: Physics
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z
+
+- model: teacher.teachermodel
+  pk: 3
+  fields:
+    user: 3
+
+    birthday: 1990-03-10
+    last_name: Brown
+    first_name: Alice
+    phone_number: 1122334455
+    url_picture: null
+    gender: F
+    available: true
+    speciality: Chemistry
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z
+
+- model: teacher.teachermodel
+  pk: 4
+  fields:
+    user: 4
+
+    birthday: 1975-07-20
+    last_name: Johnson
+    first_name: Robert
+    phone_number: 2233445566
+    url_picture: null
+    gender: M
+    available: false
+    speciality: Biology
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z
+
+- model: teacher.teachermodel
+  pk: 5
+  fields:
+    user: 5
+
+    birthday: 1982-11-30
+    last_name: Davis
+    first_name: Emily
+    phone_number: 3344556677
+    url_picture: null
+    gender: F
+    available: true
+    speciality: English
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z
+
+- model: teacher.teachermodel
+  pk: 6
+  fields:
+    user: 6
+
+    birthday: 1995-09-25
+    last_name: Wilson
+    first_name: Michael
+    phone_number: 4455667788
+    url_picture: null
+    gender: M
+    available: false
+    speciality: History
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z

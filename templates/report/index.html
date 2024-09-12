@@ -4,18 +4,18 @@
 {% block title %}<title>Mon Etab - Rapport</title> {% endblock %}
 
 {% block content %}
+<main>
+    <h2 style="text-align: start">Rapport</h2>
 
-
-    <main>
-        <h2 style="text-align: start">Rapport</h2>
-
-        <select name="type" id="select" style="width: 250px; margin-right: 5%;" >
-            <option>Sélectionnez une option</option>
-            <option>Élèves Excel</option>
-            <option>Professeurs Excel</option>
-            <option>Utilisateurs Excel</option>
+    <form method="get" action="{% url 'report:generate_report' %}">
+        <select name="report_type" id="select" style="width: 250px; margin-right: 5%;">
+            <option value="">Sélectionnez une option</option>
+            <option value="students">Élèves</option>
+            <option value="teachers">Professeurs</option>
+            <option value="users">Utilisateurs</option>
         </select>
-        <button type="button" style="margin-right: 5%;">Générer format PDF</button>
-        <button type="submit">Générer format Excel</button>
-    </main>
+        <button type="submit" name="format" value="pdf" style="margin-right: 5%;">Générer format PDF</button>
+        <button type="submit" name="format" value="excel">Générer format Excel</button>
+    </form>
+</main>
 {% endblock %}

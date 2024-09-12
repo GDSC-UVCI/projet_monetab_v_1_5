@@ -4,7 +4,7 @@ from student.forms.absence_forms import AbsenceForm
 from student.models.absence_model import AbsenceModel
 from datetime import datetime
 from user.forms.user_forms import UserForm
-from base.forms.adress_form import AdressForm
+from base.forms.address_form import AddressForm
 from django.contrib.auth.decorators import login_required
 
 

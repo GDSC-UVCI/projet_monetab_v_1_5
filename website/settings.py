@@ -48,12 +48,13 @@ INSTALLED_APPS = [
     'report.apps.ReportConfig',
     'base.apps.BaseConfig',
     'school.apps.SchoolConfig',
+    "api.apps.ApiConfig",
 
     #Libraries
     'crispy_forms',
     'crispy_bootstrap4',
     'mathfilters',
-    "api.apps.ApiConfig",
+    'drf_yasg',
 
 ]
 
@@ -97,7 +98,7 @@ WSGI_APPLICATION = 'website.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'etab_bd2',
+        'NAME': 'etab_bd3',
         'USER': 'admin',
         'PASSWORD': '1234',
         'HOST': 'localhost',

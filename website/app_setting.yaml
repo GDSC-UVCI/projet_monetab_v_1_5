@@ -1,0 +1,200 @@
+# fixtures/app_setting.yaml
+- model: school.appsettingmodel
+  pk: 1
+  fields:
+    smpt_server: smtp1.example.com
+    smpt_port: 587
+    smpt_username: user1
+    smpt_password: pass1
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z
+
+- model: school.appsettingmodel
+  pk: 2
+  fields:
+    smpt_server: smtp2.example.com
+    smpt_port: 587
+    smpt_username: user2
+    smpt_password: pass2
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z
+
+- model: school.appsettingmodel
+  pk: 3
+  fields:
+    smpt_server: smtp3.example.com
+    smpt_port: 587
+    smpt_username: user3
+    smpt_password: pass3
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z
+
+- model: school.appsettingmodel
+  pk: 4
+  fields:
+    smpt_server: smtp4.example.com
+    smpt_port: 587
+    smpt_username: user4
+    smpt_password: pass4
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z
+
+- model: school.appsettingmodel
+  pk: 5
+  fields:
+    smpt_server: smtp5.example.com
+    smpt_port: 587
+    smpt_username: user5
+    smpt_password: pass5
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z
+
+- model: school.appsettingmodel
+  pk: 6
+  fields:
+    smpt_server: smtp6.example.com
+    smpt_port: 587
+    smpt_username: user6
+    smpt_password: pass6
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z
+
+- model: school.appsettingmodel
+  pk: 7
+  fields:
+    smpt_server: smtp7.example.com
+    smpt_port: 587
+    smpt_username: user7
+    smpt_password: pass7
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z
+
+- model: school.appsettingmodel
+  pk: 8
+  fields:
+    smpt_server: smtp8.example.com
+    smpt_port: 587
+    smpt_username: user8
+    smpt_password: pass8
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z
+
+- model: school.appsettingmodel
+  pk: 9
+  fields:
+    smpt_server: smtp9.example.com
+    smpt_port: 587
+    smpt_username: user9
+    smpt_password: pass9
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z
+
+- model: school.appsettingmodel
+  pk: 10
+  fields:
+    smpt_server: smtp10.example.com
+    smpt_port: 587
+    smpt_username: user10
+    smpt_password: pass10
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z
+
+- model: school.appsettingmodel
+  pk: 11
+  fields:
+    smpt_server: smtp11.example.com
+    smpt_port: 587
+    smpt_username: user11
+    smpt_password: pass11
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z
+
+- model: school.appsettingmodel
+  pk: 12
+  fields:
+    smpt_server: smtp12.example.com
+    smpt_port: 587
+    smpt_username: user12
+    smpt_password: pass12
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z
+
+- model: school.appsettingmodel
+  pk: 13
+  fields:
+    smpt_server: smtp13.example.com
+    smpt_port: 587
+    smpt_username: user13
+    smpt_password: pass13
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z
+
+- model: school.appsettingmodel
+  pk: 14
+  fields:
+    smpt_server: smtp14.example.com
+    smpt_port: 587
+    smpt_username: user14
+    smpt_password: pass14
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z
+
+- model: school.appsettingmodel
+  pk: 15
+  fields:
+    smpt_server: smtp15.example.com
+    smpt_port: 587
+    smpt_username: user15
+    smpt_password: pass15
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z
+
+- model: school.appsettingmodel
+  pk: 16
+  fields:
+    smpt_server: smtp16.example.com
+    smpt_port: 587
+    smpt_username: user16
+    smpt_password: pass16
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z
+
+- model: school.appsettingmodel
+  pk: 17
+  fields:
+    smpt_server: smtp17.example.com
+    smpt_port: 587
+    smpt_username: user17
+    smpt_password: pass17
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z
+
+- model: school.appsettingmodel
+  pk: 18
+  fields:
+    smpt_server: smtp18.example.com
+    smpt_port: 587
+    smpt_username: user18
+    smpt_password: pass18
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z
+
+- model: school.appsettingmodel
+  pk: 19
+  fields:
+    smpt_server: smtp19.example.com
+    smpt_port: 587
+    smpt_username: user19
+    smpt_password: pass19
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z
+
+- model: school.appsettingmodel
+  pk: 20
+  fields:
+    smpt_server: smtp20.example.com
+    smpt_port: 587
+    smpt_username: user20
+    smpt_password: pass20
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z

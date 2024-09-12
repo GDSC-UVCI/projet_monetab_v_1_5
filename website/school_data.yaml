@@ -1,0 +1,180 @@
+# fixtures/school_data.yaml
+- model: school.schoolmodel
+  pk: 1
+  fields:
+    name: School One
+    url_logo: logo1.png
+    app_setting: 1
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z
+
+- model: school.schoolmodel
+  pk: 2
+  fields:
+    name: School Two
+    url_logo: logo2.png
+    app_setting: 2
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z
+
+- model: school.schoolmodel
+  pk: 3
+  fields:
+    name: School Three
+    url_logo: logo3.png
+    app_setting: 3
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z
+
+- model: school.schoolmodel
+  pk: 4
+  fields:
+    name: School Four
+    url_logo: logo4.png
+    app_setting: 4
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z
+
+- model: school.schoolmodel
+  pk: 5
+  fields:
+    name: School Five
+    url_logo: logo5.png
+    app_setting: 5
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z
+
+- model: school.schoolmodel
+  pk: 6
+  fields:
+    name: School Six
+    url_logo: logo6.png
+    app_setting: 6
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z
+
+- model: school.schoolmodel
+  pk: 7
+  fields:
+    name: School Seven
+    url_logo: logo7.png
+    app_setting: 7
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z
+
+- model: school.schoolmodel
+  pk: 8
+  fields:
+    name: School Eight
+    url_logo: logo8.png
+    app_setting: 8
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z
+
+- model: school.schoolmodel
+  pk: 9
+  fields:
+    name: School Nine
+    url_logo: logo9.png
+    app_setting: 9
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z
+
+- model: school.schoolmodel
+  pk: 10
+  fields:
+    name: School Ten
+    url_logo: logo10.png
+    app_setting: 10
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z
+
+- model: school.schoolmodel
+  pk: 11
+  fields:
+    name: School Eleven
+    url_logo: logo11.png
+    app_setting: 11
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z
+
+- model: school.schoolmodel
+  pk: 12
+  fields:
+    name: School Twelve
+    url_logo: logo12.png
+    app_setting: 12
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z
+
+- model: school.schoolmodel
+  pk: 13
+  fields:
+    name: School Thirteen
+    url_logo: logo13.png
+    app_setting: 13
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z
+
+- model: school.schoolmodel
+  pk: 14
+  fields:
+    name: School Fourteen
+    url_logo: logo14.png
+    app_setting: 14
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z
+
+- model: school.schoolmodel
+  pk: 15
+  fields:
+    name: School Fifteen
+    url_logo: logo15.png
+    app_setting: 15
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z
+
+- model: school.schoolmodel
+  pk: 16
+  fields:
+    name: School Sixteen
+    url_logo: logo16.png
+    app_setting: 16
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z
+
+- model: school.schoolmodel
+  pk: 17
+  fields:
+    name: School Seventeen
+    url_logo: logo17.png
+    app_setting: 17
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z
+
+- model: school.schoolmodel
+  pk: 18
+  fields:
+    name: School Eighteen
+    url_logo: logo18.png
+    app_setting: 18
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z
+
+- model: school.schoolmodel
+  pk: 19
+  fields:
+    name: School Nineteen
+    url_logo: logo19.png
+    app_setting: 19
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z
+
+- model: school.schoolmodel
+  pk: 20
+  fields:
+    name: School Twenty
+    url_logo: logo20.png
+    app_setting: 20
+    created_at: 2023-10-01T00:00:00Z
+    updated_at: 2023-10-01T00:00:00Z

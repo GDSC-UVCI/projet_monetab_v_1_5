@@ -24,4 +24,7 @@ class UserForm(forms.ModelForm):
             'username': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter your username'}),
             'pseudo': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter your pseudo'}),
             'password': forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Enter your password'}),
+            'role': forms.Select(attrs={'class': 'form-control'}),
+            'school': forms.Select(attrs={'class': 'form-control'}),
+            'is_active': forms.CheckboxInput(attrs={'class': 'form-check-input form-control', 'label': 'Is Active'}),
         }

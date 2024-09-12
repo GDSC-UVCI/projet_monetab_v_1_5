@@ -3,7 +3,7 @@ from datetime import datetime
 from teacher.forms.teacher_forms import TeacherForm
 from teacher.models.teacher_model import TeacherModel
 from user.forms.user_forms import UserForm
-from base.forms.adress_form import AdressForm
+from base.forms.address_form import AddressForm
 from django.contrib.auth.decorators import login_required
 
 
@@ -28,7 +28,7 @@ def add_and_edit(request, pk=None):
 
     if request.method == "POST":
         user_form = UserForm(request.POST, instance=teacher.user if teacher else None)
-        adress_form = AdressForm(request.POST, instance=teacher.adress if teacher else None)
+        adress_form = AddressForm(request.POST, instance=teacher.address if teacher else None)
         form = TeacherForm(request.POST, instance=teacher)
 
         if form.is_valid() and user_form.is_valid() and adress_form.is_valid():
@@ -36,14 +36,14 @@ def add_and_edit(request, pk=None):
             adress = adress_form.save()
             teacher = form.save(commit=False)
             teacher.user= user
-            teacher.adress = adress
+            teacher.address = adress
             teacher.save()
 
             return redirect('teacher:index')
     else:
         form = TeacherForm(instance=teacher)
         user_form = UserForm(instance=teacher.user if teacher else None)
-        adress_form = AdressForm(instance=teacher.adress if teacher else None)
+        adress_form = AddressForm(instance=teacher.address if teacher else None)
 
     context = {
         'form': form,

@@ -6,7 +6,7 @@ from base.helpers.date_time_model import DateTimeModel
 class PersonModel(DateTimeModel):
     
     user = models.OneToOneField('user.UserModel',on_delete=models.CASCADE, null=True, blank=True)
-    adress = models.OneToOneField('base.AdressModel',on_delete=models.CASCADE, null=True, blank=True)
+    address = models.OneToOneField('base.AddressModel', on_delete=models.CASCADE, null=True, blank=True)
     birthday = models.DateField()
     last_name = models.CharField(max_length=20)
     first_name = models.CharField(max_length=20)

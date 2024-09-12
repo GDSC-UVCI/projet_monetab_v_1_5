@@ -1,9 +1,8 @@
 from django.urls import path
-from .views import index, check_initial_setup
-
+from .views import index, log_in, log_out
 app_name = 'dashboard'
-
 urlpatterns = [
-    path('', check_initial_setup, name='check_initial_setup'),
-    path('dashboard/', index, name='index'),
+    path('', index, name='index'),
+    path('login/', log_in, name='login'),
+    path('logout/', log_out, name='logout'),
 ]

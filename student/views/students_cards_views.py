@@ -4,7 +4,7 @@ from student.forms.students_cards_forms import StudentCardForm
 from student.models.students_cards_model import StudentsCardsModel
 from datetime import datetime
 from user.forms.user_forms import UserForm
-from base.forms.adress_form import AdressForm
+from base.forms.address_form import AddressForm
 from django.contrib.auth.decorators import login_required
 
 

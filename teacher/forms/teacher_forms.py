@@ -9,7 +9,7 @@ from teacher.models.teacher_model import TeacherModel as Teacher
 class TeacherForm(forms.ModelForm):
     class Meta:
         model = Teacher
-        exclude = ['user', 'adress', 'created_at', 'updated_at', 'status']
+        exclude = ['user', 'address', 'created_at', 'updated_at', 'status']
         
         widgets = {
             'last_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Last Name'}),

@@ -4,7 +4,7 @@ from student.forms.students_forms import StudentForm
 from student.models.students_model import StudentModel
 from datetime import datetime
 from user.forms.user_forms import UserForm
-from base.forms.adress_form import AdressForm
+from base.forms.address_form import AddressForm
 from django.contrib.auth.decorators import login_required
 
 
@@ -32,25 +32,25 @@ def add_and_edit(request, pk=None):
         student = None
     if request.method == 'POST':
         user_form = UserForm(request.POST, instance=student.user if student else None)
-        adress_form = AdressForm(request.POST, instance=student.adress if student else None)
+        address_form = AddressForm(request.POST, instance=student.address if student else None)
         form = StudentForm(request.POST, instance=student)
-        if form.is_valid() and user_form.is_valid() and adress_form.is_valid():
+        if form.is_valid() and user_form.is_valid() and address_form.is_valid():
             user = user_form.save()
-            adress = adress_form.save()
+            address = address_form.save()
             student = form.save(commit=False)
             student.user = user
-            student.adress = adress
+            student.address = address
             student.save()
             print('success')
             return redirect('student:index')
 
     form = StudentForm(instance=student)
     user_form = UserForm(instance=student.user if student else None)
-    adress_form = AdressForm(instance=student.adress if student else None)
+    address_form = AddressForm(instance=student.address if student else None)
     context = {
         'form': form,
         'user_form': user_form,
-        'adress_form': adress_form,
+        'address_form': address_form,
     }
     return render(request, "student/forms.html", context)
 
