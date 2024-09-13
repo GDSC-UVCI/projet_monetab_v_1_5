@@ -5,5 +5,5 @@ from user.models.user_model import UserModel
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserModel
-        fields = '__all__'
+        fields = ['username', 'password']
 

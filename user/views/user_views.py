@@ -1,9 +1,11 @@
 from django.db.models import Q
+from django.contrib.auth.hashers import make_password
 from django.shortcuts import render, redirect, get_object_or_404
 
 from user.forms.user_forms import UserForm
 from user.models.user_model import UserModel as User
 from django.contrib.auth.decorators import login_required
+
 
 
 # Create your views here.
@@ -31,7 +33,7 @@ def add_and_edit(request, pk=None):
         if user_form.is_valid():
             user = user_form.save(commit=False)
             if request.POST.get('password'):
-                user.set_password(request.POST['password'])
+                user.password = make_password(request.POST['password'])
             user.save()
             return redirect('user:index')
         else:
@@ -42,6 +44,8 @@ def add_and_edit(request, pk=None):
         "form": user_form
     }
     return render(request, "user/forms.html", context)
+
+
 
 @login_required
 def change_user_status(request, pk, action):

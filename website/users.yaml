@@ -20,7 +20,7 @@
   fields:
     username: janedoe
     role: [1, 3]
-    school: 2
+    school: 1
     pseudo: Jane Doe
     password: pbkdf2_sha256$870000$GLmWTdxB8AIRMqhAkR1FqP$BZLo9zBqLrO036j6TxWPhFa0G2PGS9ymfViK1BZrNlw=
     is_active: true

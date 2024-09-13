@@ -4,7 +4,7 @@ from django.db import models
 from base.helpers.date_time_model import DateTimeModel
 class UserModel(AbstractUser, DateTimeModel):
 
-    role = models.ManyToManyField('user.RoleUserModel', blank=True)
+    role = models.ManyToManyField('user.RoleUserModel', blank=True, null=True)
     school = models.ForeignKey('school.SchoolModel', on_delete=models.CASCADE, null=True)
     pseudo = models.CharField(max_length=255)
     password = models.CharField(max_length=255)
@@ -19,7 +19,7 @@ class UserModel(AbstractUser, DateTimeModel):
     )
     user_permissions = models.ManyToManyField(
         Permission,
-        related_name='custom_user_permissions',  # Add this line
+        related_name='custom_user_permissions',
         blank=True,
         help_text='Specific permissions for this user.',
         verbose_name='user permissions',
