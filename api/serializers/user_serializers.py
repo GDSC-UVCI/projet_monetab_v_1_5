@@ -7,3 +7,12 @@ class UserSerializer(serializers.ModelSerializer):
         model = UserModel
         fields = ['username', 'password']
 
+
+class ChangePasswordSerializer(serializers.Serializer):
+    model = UserModel
+
+    """
+    Serializer for password change endpoint.
+    """
+    old_password = serializers.CharField(required=True)
+    new_password = serializers.CharField(required=True)

@@ -4,6 +4,8 @@ from django.http import JsonResponse
 
 from rest_framework import viewsets
 from django.contrib.auth.hashers import make_password
+from rest_framework.decorators import action
+from rest_framework.parsers import JSONParser
 from yaml import serialize
 
 from api.serializers.user_serializers import UserSerializer
@@ -14,6 +16,7 @@ class UserViewset(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
+    # Surcharge de la methode create pour crypter le mot de passe a la création
     def create(self, request, *args, **kwargs):
         data = request.data.copy()
         if 'password' in data:
@@ -21,12 +24,20 @@ class UserViewset(viewsets.ModelViewSet):
         serializer = self.get_serializer(data=data)
         serializer.is_valid(raise_exception=True)
         self.perform_create(serializer)
-        headers = self.get_success_headers(serializer.data)
-        return JsonResponse(serializer.data, status=201, headers=headers)
+        return JsonResponse(serializer.data, status=201)
 
+    # custom action pour crypter le mot de passe existent
+    @action(detail=False, methods=['post'])
+    def create_user_with_crypt(self, request, pk=None):
+        data = JSONParser().parse(request)
+        password = data['password']
+        serializer = UserSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save(password=make_password(password))
+            return JsonResponse(serializer.data, statue=201)
+        return JsonResponse(serializer.errors, status=400)
 
-
-
+#View basé sur les fonctions
 # @csrf_exempt
 # def users_list(request):
 #     if request.method == 'GET':

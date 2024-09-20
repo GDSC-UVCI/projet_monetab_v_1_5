@@ -4,7 +4,7 @@ from django.db import models
 from base.helpers.date_time_model import DateTimeModel
 class UserModel(AbstractUser, DateTimeModel):
 
-    role = models.ManyToManyField('user.RoleUserModel', blank=True, null=True)
+    role = models.ManyToManyField('user.RoleUserModel', blank=True)
     school = models.ForeignKey('school.SchoolModel', on_delete=models.CASCADE, null=True)
     pseudo = models.CharField(max_length=255)
     password = models.CharField(max_length=255)

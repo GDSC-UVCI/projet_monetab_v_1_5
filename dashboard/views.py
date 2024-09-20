@@ -8,11 +8,11 @@ from school.models.app_setting_model import AppSettingModel
 from school.models.school_model import SchoolModel
 from user.forms.user_forms import UserForm
 
+
 @login_required
 def index(request):
-    if not AppSettingModel.objects.exists() or not SchoolModel.objects.exists():
-        return redirect('appsetting_add')
     return render(request, "dashboard/index.html")
+
 
 def log_in(request):
     if not AppSettingModel.objects.exists() or not SchoolModel.objects.exists():
@@ -26,7 +26,8 @@ def log_in(request):
         password = request.POST.get('password')
         user = authenticate(request, username=username, password=password)
         if user is None:
-            user = authenticate(request, username=username, password=password, backend='user.backends.CustomUserModelBackend')
+            user = authenticate(request, username=username, password=password,
+                                backend='user.backends.CustomUserModelBackend')
         if user:
             login(request, user)
             return redirect('dashboard:index')
@@ -36,6 +37,7 @@ def log_in(request):
 
     form = UserForm()
     return render(request, "login.html", {'form': form})
+
 
 def log_out(request):
     logout(request)

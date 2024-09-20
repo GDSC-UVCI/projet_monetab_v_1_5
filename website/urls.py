@@ -27,32 +27,25 @@ from school.views.app_settings_views import appsetting_add
 
 router = routers.DefaultRouter()
 #router.register(r'students', student_list, basename='student')
-
-schema_view = get_schema_view(
-    openapi.Info(
-        title="Your API",
-        default_version='v1',
-        description="API documentation",
-        terms_of_service="https://www.google.com/policies/terms/",
-        contact=openapi.Contact(email="contact@yourapi.local"),
-        license=openapi.License(name="BSD License"),
-    ),
-    public=True,
-    permission_classes=(permissions.AllowAny),
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView, TokenVerifyView,
 )
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('api.urls')),
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('api/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
     path('login/', log_in, name='login'),
     path('appsetting/', appsetting_add, name='appsetting_add'),
     path('logout/', log_out, name='logout'),
     path('student/', include('student.urls')),
-    path('', include('dashboard.urls')),
+    path('dashboard', include('dashboard.urls')),
     path('teacher/', include('teacher.urls')),
     path('user/', include('user.urls')),
     path("report/", include("report.urls")),
     path("school/", include("school.urls")),
-    re_path(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
-    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
-    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+
 ]

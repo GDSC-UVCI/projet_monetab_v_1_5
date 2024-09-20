@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
 
-    'rest_framework',
+
     #Apps
     'student.apps.StudentConfig',
     'dashboard.apps.DashboardConfig',
@@ -55,8 +55,35 @@ INSTALLED_APPS = [
     'crispy_bootstrap4',
     'mathfilters',
     'drf_yasg',
+    'rest_framework',
+    'rest_framework_simplejwt',
 
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+
+        'DEFAULT_AUTHENTICATION_CLASSES': (
+            'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+
+}
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'Bearer': {
+            'type': 'apiKey',
+            'name': 'Authorization',
+            'in': 'header',
+            'description': "JWT Authorization  header using Bearer scheme. Exemple:  'Authorization: Bearer <token>'",
+        },
+    },
+    'USE_SESSION_AUTH': False,
+    'REFETCH_SCHEMA_WITH_AUTH': True,
+    'LOGIN_URL': 'rest_framework:login',
+    'LOGOUT_URL': 'rest_framework:logout',
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -109,8 +136,7 @@ DATABASES = {
     }
 }
 
-LOGIN_URL=''
-LOGIN_REDIRECT_URL = 'dashboard/'
+LOGIN_URL = 'login/'
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators

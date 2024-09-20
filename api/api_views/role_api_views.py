@@ -4,19 +4,27 @@ from rest_framework.parsers import JSONParser
 
 from api.serializers.role_serializers import RoleSerializer
 from user.models.role_model import RoleUserModel
+from  rest_framework import viewsets
 
 
-@csrf_exempt
-def role_list(request):
-    if request.method == 'GET':
-        roles = RoleUserModel.objects.all()
-        serializer = RoleSerializer(roles, many=True)
-        return JsonResponse(serializer.data, safe=False)
+class RoleViewSet(viewsets.ModelViewSet):
+    serializer_class = RoleSerializer
+    queryset = RoleUserModel.objects.all()
 
-    elif request.method == 'POST':
-        data = JSONParser().parse(request)
-        serializer = RoleSerializer(data=data)
-        if serializer.is_valid():
-            serializer.save()
-            return JsonResponse(serializer.data, status=201)
-        return JsonResponse(serializer.errors, status=400)
+
+
+#
+# @csrf_exempt
+# def role_list(request):
+#     if request.method == 'GET':
+#         roles = RoleUserModel.objects.all()
+#         serializer = RoleSerializer(roles, many=True)
+#         return JsonResponse(serializer.data, safe=False)
+#
+#     elif request.method == 'POST':
+#         data = JSONParser().parse(request)
+#         serializer = RoleSerializer(data=data)
+#         if serializer.is_valid():
+#             serializer.save()
+#             return JsonResponse(serializer.data, status=201)
+#         return JsonResponse(serializer.errors, status=400)

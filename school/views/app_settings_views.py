@@ -8,8 +8,8 @@ def appsetting_add(request):
     if request.method == 'POST':
         form = AppSettingsForms(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('dashboard:check_initial_setup')
+            app_setting = form.save()
+            return redirect('school:add', app_setting.id)
     else:
         form = AppSettingsForms()
     context = {

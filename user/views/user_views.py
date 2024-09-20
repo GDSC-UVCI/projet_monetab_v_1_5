@@ -3,7 +3,7 @@ from django.contrib.auth.hashers import make_password
 from django.shortcuts import render, redirect, get_object_or_404
 
 from user.forms.user_forms import UserForm
-from user.models.user_model import UserModel as User
+from user.models.user_model import UserModel
 from django.contrib.auth.decorators import login_required
 
 
@@ -11,7 +11,7 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 @login_required
 def index(request):
-    users = User.objects.all()
+    users = UserModel.objects.all()
     numbers_users = users.count()
     context = {
         'users': users,
@@ -23,7 +23,7 @@ def index(request):
 @login_required
 def add_and_edit(request, pk=None):
     if pk:
-        user = get_object_or_404(User, id=pk)
+        user = get_object_or_404(UserModel, id=pk)
     else:
         user = None
 
@@ -31,6 +31,7 @@ def add_and_edit(request, pk=None):
         user_form = UserForm(request.POST, instance=user)
 
         if user_form.is_valid():
+            print('success')
             user = user_form.save(commit=False)
             if request.POST.get('password'):
                 user.password = make_password(request.POST['password'])
