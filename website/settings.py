@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-
+from datetime import timedelta
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -59,32 +59,42 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
 
 ]
+#
+# REST_FRAMEWORK = {
+#     'DEFAULT_PERMISSION_CLASSES': [
+#         'rest_framework.permissions.IsAuthenticated',
+#     ],
+#
+#         'DEFAULT_AUTHENTICATION_CLASSES': (
+#             'rest_framework_simplejwt.authentication.JWTAuthentication',
+#     )
+#
+# }
+# SWAGGER_SETTINGS = {
+#     'SECURITY_DEFINITIONS': {
+#         'Bearer': {
+#             'type': 'apiKey',
+#             'name': 'Authorization',
+#             'in': 'header',
+#             'description': "JWT Authorization  header using Bearer scheme. Exemple:  'Authorization: Bearer <token>'",
+#         },
+#     },
+#     'USE_SESSION_AUTH': False,
+#     'REFETCH_SCHEMA_WITH_AUTH': True,
+#     'LOGIN_URL': 'rest_framework:login',
+#     'LOGOUT_URL': 'rest_framework:logout',
+# }
 
-REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
-    ],
+# SIMPLE_JWT = {
+#     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),
+#     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
+#     "AUTH_TOKEN_CLASSES": ("rest_framework_simplejwt.tokens.AccessToken", "rest_framework_simplejwt.tokens.SlidingToken",),
+#     "SLIDING_TOKEN_LIFETIME": timedelta(minutes=5),
+#     "SLIDING_TOKEN_REFRESH_LIFETIME": timedelta(days=1),
+#
+# }
 
-        'DEFAULT_AUTHENTICATION_CLASSES': (
-            'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
-
-}
-SWAGGER_SETTINGS = {
-    'SECURITY_DEFINITIONS': {
-        'Bearer': {
-            'type': 'apiKey',
-            'name': 'Authorization',
-            'in': 'header',
-            'description': "JWT Authorization  header using Bearer scheme. Exemple:  'Authorization: Bearer <token>'",
-        },
-    },
-    'USE_SESSION_AUTH': False,
-    'REFETCH_SCHEMA_WITH_AUTH': True,
-    'LOGIN_URL': 'rest_framework:login',
-    'LOGOUT_URL': 'rest_framework:logout',
-}
-
+LOGIN_URL = "admin/"
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

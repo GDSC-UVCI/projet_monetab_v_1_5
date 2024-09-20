@@ -2,6 +2,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
 from rest_framework import viewsets
+from rest_framework import permissions
 
 from api.serializers.student_serializers import StudentSerializer
 from student.models.students_model import StudentModel
@@ -10,6 +11,7 @@ from student.models.students_model import StudentModel
 class StudentViewset(viewsets.ModelViewSet):
     queryset = StudentModel.objects.all()
     serializer_class = StudentSerializer
+    # permission_classes = [permissions.AllowAny]
 
 
 
